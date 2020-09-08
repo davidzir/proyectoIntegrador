@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-let agregarPost= require("agregarPost.html")
+router.get('/agregarPost', function(req, res, next) {
+    res.render('agregarPost');
+  });
 
 module.exports = router;
