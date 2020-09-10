@@ -1,6 +1,11 @@
 let homeController = {
-    metodo: function(req, res) {
-        res.send('Hola estas en la HOME')
+
+    home: function(req, res) {
+        res.render('home')
+    },
+
+    resultadoBusqueda: function(req, res) {
+        res.render('resultadoBusqueda')
     },
     
 
