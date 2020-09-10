@@ -1,11 +1,11 @@
-let registracionController = {
-    Metodo: function name(params) {
+// let registracionController = {
+//     Metodo: function name(params) {
         
-    },
+//     },
     
 
 
 
 
-}
-module.exports = registracionController;
+// }
+// module.exports = registracionController;

@@ -1,6 +1,6 @@
 let homeController = {
-    Metodo: function name(params) {
-        
+    metodo: function(req, res) {
+        res.send('Hola estas en la HOME')
     },
     
 

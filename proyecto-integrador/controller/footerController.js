@@ -1,11 +1,11 @@
-let footerController = {
-    Metodo: function name(params) {
+// let footerController = {
+//     Metodo: function name(params) {
         
-    },
+//     },
     
 
 
 
 
-}
-module.exports = footerController;
+// }
+// module.exports = footerController;

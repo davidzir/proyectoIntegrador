@@ -1,11 +1,11 @@
-let miperfilController = {
-    Metodo: function name(params) {
+// let miperfilController = {
+//     Metodo: function name(params) {
         
-    },
+//     },
     
 
 
 
 
-}
-module.exports = miperfilController;
+// }
+// module.exports = miperfilController;

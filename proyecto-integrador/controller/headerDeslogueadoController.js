@@ -1,11 +1,11 @@
-let headerDeslogueadoController = {
-    Metodo: function name(params) {
+// let headerDeslogueadoController = {
+//     Metodo: function name(params) {
         
-    },
+//     },
     
 
 
 
 
-}
-module.exports = headerDeslogueadoController;
+// }
+// module.exports = headerDeslogueadoController;

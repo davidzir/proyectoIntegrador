@@ -1,8 +1,8 @@
-let express = require('express');
-let router = express.Router();
+// let express = require('express');
+// let router = express.Router();
 
-router.get('/', function(req, res, next) {
-    res.render('headerDeslogueado');
-  });
+// router.get('/', function(req, res, next) {
+//     res.render('headerDeslogueado');
+//   });
 
-module.exports = router
+// module.exports = router

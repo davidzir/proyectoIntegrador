@@ -1,11 +1,11 @@
-let resultadobusquedaController = {
-    Metodo: function name(params) {
+// let resultadobusquedaController = {
+//     Metodo: function name(params) {
         
-    },
+//     },
     
 
 
 
 
-}
-module.exports = resultadobusquedaController;
+// }
+// module.exports = resultadobusquedaController;

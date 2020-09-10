@@ -1,11 +1,11 @@
-let detalleUsuarioController = {
-    Metodo: function name(params) {
+// let detalleUsuarioController = {
+//     Metodo: function name(params) {
         
-    },
+//     },
     
 
 
 
 
-}
-module.exports = detalleUsuarioController;
+// }
+// module.exports = detalleUsuarioController;
