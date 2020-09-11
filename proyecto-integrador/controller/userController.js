@@ -1,4 +1,4 @@
-let usuarioController = {
+let userController = {
     
     miPerfil: function(req, res) {
 
@@ -23,10 +23,18 @@ let usuarioController = {
         res.render("login")
 
     },
+
+    home: function(req, res) {
+        
+        res.render("home")
+
+    },
     
 
 }
 
 
 
-module.exports = usuarioController;
+module.exports = userController;
+
+
