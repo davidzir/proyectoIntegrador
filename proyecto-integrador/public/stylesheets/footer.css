@@ -10,4 +10,9 @@ footer ul{
 
 footer ul li{
     margin-top: 0;
+    color: #6c2eb9;
+    font-weight: normal;
+    font-size: 10px;
+    font-family: Arial;
+    text-transform: uppercase;
 }

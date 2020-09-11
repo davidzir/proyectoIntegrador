@@ -6,6 +6,13 @@
 header{
     height: 55px;
     padding-top: 10px;
+
+
+    color: #656172;
+    font-weight: normal;
+    font-size: 20px;
+    font-family: Arial;
+    text-transform: lowercase;
 }
 header section{
     height: 100%;
