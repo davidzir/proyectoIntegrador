@@ -29,9 +29,5 @@ let userController = {
         res.render("home")
 
     },
-    
-
 }
-
-
 module.exports = userController;
