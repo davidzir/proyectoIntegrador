@@ -3,12 +3,6 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-<<<<<<< HEAD
-let indexRouter = require('./routes/index');
-let PostsRouter = require("./routes/post")
-let userRouter = require("./routes/User")
-let resultadobusquedaRouter = require ("./routes/resultadobusqueda")
-=======
 
 // traemos las rutas
 
@@ -21,7 +15,6 @@ let resultadoBusquedaRouter = require("./routes/resultadoBusqueda")
 
 // let indexRouter = require('./routes/index');
 
->>>>>>> master
 
 
 var app = express();
@@ -36,13 +29,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-<<<<<<< HEAD
-app.use('/', indexRouter);
-app.use('/posts', PostsRouter );
-app.use('/user', userRouter);
-
-app.use("/resultadobusqueda", resultadobusquedaRouter)
-=======
 
 
 // Rutas
@@ -69,5 +55,4 @@ app.use("/resultadoBusqueda", resultadoBusquedaRouter)
 
 
 
->>>>>>> master
 module.exports = app;
