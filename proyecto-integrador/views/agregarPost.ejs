@@ -33,21 +33,46 @@
 </head>
 
 <body>
-    <%-include("headerLogueado") %> 
+    <%-include("partials/headerLogueado") %> 
 
     <main>
         <div class="uk-section uk-section-small">
             <div class="uk-container uk-container-large uk-flex">
-                <form action="">
-                    <h2>(Formulario para agregar un post)</h2>
 
-                </form>
+              <!-- EMPIEZA FORM -->
+
+              <form action="">
+                    
+
+                <h2>Agrega tu post acá:</h2>
+
+                <label for="">??</label> <br>
+                <input type="text" name="Nombre" id="" placeholder="Nombre"><br>
+
+                <label for="">??</label><br>
+                <input type="text" name="Apellido" id="" placeholder="Apellido"><br>
+
+                <label for="">opcion:</label><br>
+
+                <label for="male">Male</label>
+                <input type="radio" name="gender" id="male" value="male">
+
+                <label for="female">Female</label>
+                <input type="radio" name="gender" id="female" value="female"><br>
+
+                <input type="submit" value="Agregar">
+                    
+                            
+                                </form>
+                                <!-- TERMINA FORM -->
+
 
             </div>
         </div>
     </main>
     
-   <%-include("footer") %> 
+
+    <%-include("partials/footer") %> 
 </body>
 
 </html>

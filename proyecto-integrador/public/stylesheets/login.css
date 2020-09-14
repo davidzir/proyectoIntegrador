@@ -1,0 +1,13 @@
+/* CSS para los FORM */
+
+form h1{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+form h2{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+label{
+    font-variant: small-caps;
+}

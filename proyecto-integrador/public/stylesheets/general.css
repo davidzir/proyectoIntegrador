@@ -5,25 +5,16 @@
 main{
     margin-bottom: 40px;
 
-    /* ESTO NO FUNCIONA */
-    color: #747377;
+
     font-weight: normal;
-    font-size: 18px;
+    font-size: 20px;
     font-family: Arial;
     text-transform: lowercase;
 
 
 
+    /* ESTO NO FUNCIONA */
+    /* color: #747377; */
+
 
 }
-
-/* li {
-
-    color: #6c2eb9;
-    font-weight: normal;
-    font-size: 10px;
-    font-family: Arial;
-    text-transform: uppercase;
-
-  } */
-

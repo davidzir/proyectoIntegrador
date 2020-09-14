@@ -1,10 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <%-include("headerDeslogueado") %> 
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FalseBook</title>
+        <link rel="icon"
+            href="https://w7.pngwing.com/pngs/624/811/png-transparent-computer-icons-facebook-social-media-f-logo-cross-brand.png"
+            type="image/x-icon">
+    
+    
+    
+    <link rel="stylesheet" href="/stylesheets/login.css">
+    <link rel="stylesheet" href="/stylesheets/header.css">
+    <link rel="stylesheet" href="/stylesheets/general.css">
+    <link rel="stylesheet" href="/stylesheets/footer.css">
+    
+    
+        <!-- UiKit -->
+        <!-- <link rel="stylesheet" href="css/uikit.min.css">
+        <script src="js/uikit-icons.min.js"></script>
+        <script src="js/uikit.min.js"></script> -->
+        <!-- UiKit -->
+    
+        <!-- UIkit CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css" />
+    
+        <!-- UIkit JS -->
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit-icons.min.js"></script>
+    </head>
+
 
 <body>
 
+    <%-include("partials/headerDeslogueado") %> 
 
     <main>
         <div class="uk-section uk-section-small">
@@ -12,21 +42,56 @@
 
 
 
-                <!-- ACA HACEMOS EL FORM -->
+
+
+
+              <!-- EMPIEZA FORM -->
+
                 <form action="">
+                    
+                    <h1>Login</h1>
 
+                    <h2>Complete su formulario de login</h2>
 
-                    <h2>(Formulario de login)</h2>
-                
-                
-                </form>
+                    <!-- <label for="">Nombre</label> <br>
+                    <input type="text" name="Nombre" id="" placeholder="Nombre"><br>
+
+                    <label for="">Apellido</label><br>
+                    <input type="text" name="Apellido" id="" placeholder="Apellido"><br> -->
+
+                    <label for="">Correo electronico</label><br>
+                    <input type="mail" name="mail" id="" placeholder="Mail" required="@"><br>
+
+                    <label for="">Contraseña</label><br>
+                    <input type="password" name="password" id="" placeholder="Password" required="password"><br>
+
+                    <!-- <label for="">Fecha de Nacimiento</label><br>
+                    <input type="date" name="date" id="" placeholder="Fecha de nacimiento"><br>
+
+                    <label for="">género</label><br>
+
+                    <label for="male">Male</label>
+                    <input type="radio" name="gender" id="male" value="male">
+
+                    <label for="female">Female</label>
+                    <input type="radio" name="gender" id="female" value="female">
+
+                    <label for="other">Other</label>
+                    <input type="radio" name="gender" id="other" value="other"><br><br> -->
+
+                    <input type="submit" value="Login">
+                        
+                                
+                                    </form>
+                                    <!-- TERMINA FORM -->
 
                 
             </div>
         </div>
     </main>
 
-    <%-include("footer") %> 
+
+    <%-include("partials/footer") %> 
 
 
 </body>
