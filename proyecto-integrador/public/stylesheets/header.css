@@ -11,7 +11,7 @@ header{
     color: #656172;
     font-weight: normal;
     font-size: 20px;
-    font-family: Arial;
+    font-family: arial;
     text-transform: lowercase;
 }
 header section{
@@ -31,7 +31,7 @@ header nav ul li a:hover{
     margin: 0px;
 }
 .logo a{
-    font-family: 'Fjalla One', sans-serif;
+    font-family: italic;
     color: white;
 }
 .logo a:hover {
