@@ -2,6 +2,7 @@ footer{
     height: 40px;
     color:rgb(0, 128, 38);
     padding: 0 10px;
+    background-color: purple;
 }
 
 footer ul{
