@@ -4,14 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webex</title>
-    <link rel="icon" href="https://w7.pngwing.com/pngs/624/811/png-transparent-computer-icons-facebook-social-media-f-logo-cross-brand.png"
+    <title></title>
+    <link rel="icon"
+        href="https://w7.pngwing.com/pngs/624/811/png-transparent-computer-icons-facebook-social-media-f-logo-cross-brand.png"
         type="image/x-icon">
 
 
 <!-- LINK A LOS CSS  (TENEMOS QUE HACER OTRO FORM) -->
-
-
 <link rel="stylesheet" href="/stylesheets/registracion.css">
 <link rel="stylesheet" href="/stylesheets/header.css">
 <link rel="stylesheet" href="/stylesheets/general.css">
@@ -54,13 +53,15 @@
                 <label for="">Apellido</label><br>
                 <input type="text" name="Apellido" id="" placeholder="Apellido"><br>
 
-                <label for="">Dni</label><br>
-                <input type="mail" name="mail" id="" placeholder="Mail" required="@"><br>
+                <label for="">DNI</label><br>
+                <input type="text" name="dni" placeholder="Introduzca su DNI" pattern="[0-9]{8}[A-Za-z]{1}">
+                </BR><label for="">Mail</label><br>
+                <input type="mail" name="mail" id="mail" placeholder="Mail" required="@"><br>
 
                 <label for="">Contraseña</label><br>
                 <input type="password" name="password" id="" placeholder="Password" required="password"><br>
 
-                <label for="">edad</label><br>
+                <label for="">Fecha de Nacimiento</label><br>
                 <input type="date" name="date" id="" placeholder="Fecha de nacimiento"><br>
 
                 <label for="">género</label><br>
@@ -85,9 +86,5 @@
     </main>
 
     <%-include("partials/footer") %> 
-
-
-
 </body>
-
 </html>
