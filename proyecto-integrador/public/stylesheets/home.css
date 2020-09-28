@@ -61,3 +61,16 @@ article.post div.post-comentarios ul li a{
 article.post div.post-comentarios ul li p{
     margin: 0 5px;
 }
+
+.perfil {
+
+        width: 40px;
+        height: 40px;
+    object-fit: cover;
+}
+
+/* .post {
+    width: 400px;
+    height: 500px;
+object-fit: cover;
+} */
