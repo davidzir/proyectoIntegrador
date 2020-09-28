@@ -11,6 +11,9 @@ main{
     font-family: Arial;
     text-transform: lowercase;
 
+    background-color:#D3D3D3;
+
+
 
 
     /* ESTO NO FUNCIONA */
@@ -18,3 +21,4 @@ main{
 
 
 }
+
