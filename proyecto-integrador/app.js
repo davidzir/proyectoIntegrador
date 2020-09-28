@@ -13,9 +13,6 @@ let resultadoBusquedaRouter = require("./routes/resultadoBusqueda")
 
 
 
-// let indexRouter = require('./routes/index');
-
-
 
 var app = express();
 
@@ -35,16 +32,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 
-// app.use("/home", homeRouter)
-// app.use("/resultadobusqueda", homeRouter)
-
-// app.use("/login", usuarioRouter)
-// app.use("/miPerfil", usuarioRouter)
-// app.use("/registracion", usuarioRouter)
-// app.use('/detalleusuario', usuarioRouter);
-
-
-// app.use('/', indexRouter);
 app.use('/post', postRouter);
 app.use('/user', userRouter);
 app.use("/resultadoBusqueda", resultadoBusquedaRouter)
