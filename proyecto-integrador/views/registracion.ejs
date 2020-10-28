@@ -41,22 +41,17 @@
 
               <!-- EMPIEZA FORM -->
 
-              <form action="">
+              <form action="POST">
                     
                 <h1>Registración</h1>
 
                 <h2>Complete su formulario de registración</h2>
 
-                <label for="">Nombre</label> <br>
-                <input type="text" name="Nombre" id="" placeholder="Nombre"><br>
+                <label for="">Nombre de usuario</label> <br>
+                <input type="text" name="nombreDeUsuario" id="" placeholder="Nombre de usuario"><br>
 
-                <label for="">Apellido</label><br>
-                <input type="text" name="Apellido" id="" placeholder="Apellido"><br>
-
-                <label for="">DNI</label><br>
-                <input type="text" name="dni" placeholder="Introduzca su DNI" pattern="[0-9]{8}[A-Za-z]{1}">
-                </BR><label for="">Mail</label><br>
-                <input type="mail" name="mail" id="mail" placeholder="Mail" required="@"><br>
+                <label for="">Mail</label><br>
+                <input type="mail" name="mail" id="" placeholder="Mail" required="@"><br>
 
                 <label for="">Contraseña</label><br>
                 <input type="password" name="password" id="" placeholder="Password" required="password"><br>
@@ -64,16 +59,15 @@
                 <label for="">Fecha de Nacimiento</label><br>
                 <input type="date" name="date" id="" placeholder="Fecha de nacimiento"><br>
 
-                <label for="">género</label><br>
+                <label for="">Pregunta de seguridad</label> <br>
+                <select name="preguntaDeSeguridad" id="" ><br>
+                <option value="1">Cual es el nombre de tu perro?</option>
+                <option value="2">En que ciudad se conocieron tus padres? </option>
+                <option value="3">Como se llama el colegio de tu infancia?</option> </select> <br>
 
-                <label for="male">Male</label>
-                <input type="radio" name="gender" id="male" value="male">
 
-                <label for="female">Female</label>
-                <input type="radio" name="gender" id="female" value="female">
-
-                <label for="other">Other</label>
-                <input type="radio" name="gender" id="other" value="other"><br><br>
+                <label for="">Respuesta</label><br>
+                <input type="text"><br>
 
                 <input type="submit" value="Submit">
                     
