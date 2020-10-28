@@ -1,63 +1,39 @@
-// const bcrypt = require('bcryptjs');
-// const db = require('../db/models');
-// const users = db.User;
+ const bcrypt = require('bcryptjs');
+ let db = require('../db/models/index');
+ 
 
-// const op = db.Sequelize.Op;
+    let userController = {
+        register: function (req, res) {
+            if (req.session.usuarioLogueado != undefined) {
+                res.redirect("/user");
+            }
 
-let userController = {
-    
-    miPerfil: function(req, res) {
+            res.render("registracion");
+        }
+          },
+storeUser: function(req, res) {
+    if (req.session.usuarioLogueado != undefined) {
+        res.redirect("/user");
+    }
 
-        res.render("miPerfil")
+    //let nombre = req.body.nombre;
+    let contraseña = bcrypt.hashSync(req.body.contraseña, 10);
+    //let edad = req.body.edad;
+    //let dni = req.body.dni;
+    //let mail = req.body.mail;
 
-    },
+    //let user = {
+      //  nombre: nombre,
+       // apellido: apellido,
+        edad: edad,
+        dni: dni,
+        mail: mail,
+    }
 
-    registracion: function(req, res) {
-        
-        res.render("registracion")
-
-    },
-
-    detalleUsuario: function(req, res) {
-        
-        res.render("detalleUsuario")
-
-    },
-
-    login: function(req, res) {
-        
-        res.render("login")
-
-       //encontrar el email
-       //Chequear que la contraseña coincida.
-    //    users.findOne({
-    //        where: [{ email : req.body.email }]
-    //    })
-    //     .then( function(user){
-    //         //El email no está en la base de datos
-    //         if(user == null){
-    //             return res.send("Email incorrecto");
-    //         } else if (bcrypt.compareSync(req.body.password, user.password) == false ){
-    //             //EL email existe pero la contraseña está mal
-    //             return res.send("Contraseña equivocada")
-    //         } else if (bcrypt.compareSync(req.body.password, user.password)){
-    //             //Coinciden las contraseñas
-    //             req.session.user = user
-    //             return res.redirect('/');
-    //         }
-
-    //     })
-    //     .catch( e => console.log(e))
-
-    },
-
-
-
-
-    home: function(req, res) {
-        
-        res.render("home")
-
-    },
-}
+    db.User.create(user)
+        .then(function () {
+            res.redirect("/user");
+        })
+},
+   
 module.exports = userController;
