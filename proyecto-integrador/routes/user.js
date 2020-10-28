@@ -7,7 +7,7 @@ let userController = require("../controller/userController")
 router.get('/miPerfil', userController.miPerfil);
 
 router.get('/registracion', userController.registracion);
-router.post('/registracion', userController.registracion);
+//router.post('/registracion', userController.storeUser);
 
 router.get('/detalleUsuario', userController.detalleUsuario);
 
