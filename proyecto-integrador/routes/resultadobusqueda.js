@@ -3,7 +3,9 @@ let router = express.Router();
 let resultadoBusquedaController = require('../controller/resultadoBusquedaController')
 
 
-router.get('/resultado', resultadoBusquedaController.busqueda);
+router.get('/', resultadoBusquedaController.busqueda);
+
+// router.get("/search", resultadoBusquedaController.search);
 
 
   

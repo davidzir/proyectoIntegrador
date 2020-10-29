@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
 
             },
 
-            apellido: {
+            apelllido: {
 
                 type: DataTypes.STRING
 
@@ -54,7 +54,7 @@ module.exports = (sequelize, DataTypes) => {
             timestamps: false
         }
     //post seria el alias, el archivo de modelo.
-        let usuarios = sequelize.define("usuarios", cols, config);
+        let usuarios = sequelize.define("user", cols, config);
     
         return usuarios;
     }
