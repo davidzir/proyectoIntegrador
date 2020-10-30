@@ -34,13 +34,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/post', postRouter);
 app.use('/user', userRouter);
-app.use("/resultadoBusqueda", resultadoBusquedaRouter)
+app.use("/resultado", resultadoBusquedaRouter)
 
 
 
 
+<<<<<<< HEAD
 var session = require("express-session")
 app.use(session({secret: "mensaje secreto"}))
+=======
+// const session = require("express-session")
+// app.use(session({secret: "mensaje secreto"}))
+>>>>>>> master
 
 
 module.exports = app;
