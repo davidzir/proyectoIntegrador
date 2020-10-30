@@ -39,7 +39,7 @@ app.use("/resultadoBusqueda", resultadoBusquedaRouter)
 
 
 
-const session = require("express-session")
+var session = require("express-session")
 app.use(session({secret: "mensaje secreto"}))
 
 

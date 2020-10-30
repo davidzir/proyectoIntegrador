@@ -25,10 +25,10 @@ storeUser: function(req, res) {
     //let user = {
       //  nombre: nombre,
        // apellido: apellido,
-        edad: edad,
-        dni: dni,
-        mail: mail,
-    }
+      //  edad: edad,
+       // dni: dni,
+       // mail: mail,
+    //}
 
     db.User.create(user)
         .then(function () {
