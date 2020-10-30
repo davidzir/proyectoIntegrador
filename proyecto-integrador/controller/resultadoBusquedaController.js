@@ -14,7 +14,9 @@ let resultadoBusquedaController = {
     db.user.findAll(
         {
             where: [
-                { nombre: { [op.like]: "%" + queBuscoElUsuario + "%"} }
+                { nombre: { [op.like]: "%" + queBuscoElUsuario + "%"} },
+                {apelllido: {[op.like]: "%" + queBuscoElUsuario + "%"} },
+                { mail: { [op.like]: "%" + queBuscoElUsuario + "%"} },
             ],
             // order: ["release_date"],
             //limit: 2
@@ -23,6 +25,11 @@ let resultadoBusquedaController = {
     .then(function(usuarios) {
         res.render("resultadoBusqueda", {usuarios: usuarios});
     })
+    },
+
+    search: function(req, res) {
+        
+
     }
     
 

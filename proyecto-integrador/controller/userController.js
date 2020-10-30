@@ -14,13 +14,13 @@ const bcrypt = require('bcryptjs');
 
         storeUser: function(req, res) {
     
-            let name = req.body.name;
-            let password = bcrypt.hashSync(req.body.password, 10);
-            let email = req.body.email;
+            let name = req.body.nombre;
+            // let password = bcrypt.hashSync(req.body.password, 10);
+            let email = req.body.mail;
     
             let user = {
                 name: name,
-                password: password,
+                // password: password,
                 email: email
             }
     
@@ -55,25 +55,7 @@ const bcrypt = require('bcryptjs');
         },
 
 
-
-
-<<<<<<< HEAD
-    //let nombre = req.body.nombre;
-    let contraseña = bcrypt.hashSync(req.body.contraseña, 10);
-    //let edad = req.body.edad;
-    //let dni = req.body.dni;
-    //let mail = req.body.mail;
-
-    //let user = {
-      //  nombre: nombre,
-       // apellido: apellido,
-      //  edad: edad,
-       // dni: dni,
-       // mail: mail,
-    //}
-=======
     }
->>>>>>> master
 
 
 

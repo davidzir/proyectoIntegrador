@@ -39,13 +39,10 @@ app.use("/resultado", resultadoBusquedaRouter)
 
 
 
-<<<<<<< HEAD
 var session = require("express-session")
 app.use(session({secret: "mensaje secreto"}))
-=======
-// const session = require("express-session")
-// app.use(session({secret: "mensaje secreto"}))
->>>>>>> master
+
+
 
 
 module.exports = app;
