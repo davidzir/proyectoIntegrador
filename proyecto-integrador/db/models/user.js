@@ -24,6 +24,12 @@ module.exports = (sequelize, DataTypes) => {
 
             },
 
+            username: {
+
+                type: DataTypes.STRING
+
+            },
+
             edad: {
 
                 type: DataTypes.INTEGER
@@ -41,11 +47,21 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.STRING
 
             },
-            username: {
+
+            pregunta: {
 
                 type: DataTypes.STRING
 
-            }
+            },
+
+            respuesta: {
+
+                type: DataTypes.STRING
+
+            },
+
+            
+
 
         }
     

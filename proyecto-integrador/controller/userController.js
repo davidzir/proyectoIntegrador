@@ -9,15 +9,16 @@ let usuarioLog
 
 
         registracion: function (req, res) {
-            if (req.session.usuarioLog != undefined) {
-                res.redirect("/miPerfil");
-            }            res.render("registracion");
+            // if (req.session.usuarioLog != undefined) {
+            //     res.redirect("/miPerfil");
+            // }            
+            res.render("registracion");
         },
 
         storeUser: function(req, res) {
-            if (req.session.usuarioLog != undefined) {
-                res.redirect("/miPerfil");
-            }
+            // if (req.session.usuarioLog != undefined) {
+            //     res.redirect("/miPerfil");
+            // }
             let nombre = req.body.nombre;
             let apellido = req.body.apellido;
             let username = req.body.username;
