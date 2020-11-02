@@ -11,7 +11,7 @@ let resultadoBusquedaController = {
 
         let queBuscoElUsuario = req.query.buscador;
 
-    db.user.findAll(
+    db.User.findAll(
         {
             where: [
                 { nombre: { [op.like]: "%" + queBuscoElUsuario + "%"} },

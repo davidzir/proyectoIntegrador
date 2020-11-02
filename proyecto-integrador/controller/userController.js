@@ -14,19 +14,29 @@ const bcrypt = require('bcryptjs');
 
         storeUser: function(req, res) {
     
-            let name = req.body.nombre;
-            // let password = bcrypt.hashSync(req.body.password, 10);
-            let email = req.body.mail;
+            let nombre = req.body.nombre;
+            let apellido = req.body.apellido;
+            let username = req.body.username;
+            let password = bcrypt.hashSync(req.body.password, 10);
+            let mail = req.body.mail;
+            let edad = req.body.edad;
+            let pregunta = req.body.pregunta;
+            let respuesta = req.body.respuesta;
     
             let user = {
-                name: name,
-                // password: password,
-                email: email
+                nombre: nombre,
+                apellido: apellido,
+                username: username,
+                password: password,
+                mail: mail,
+                edad: edad,
+                pregunta: pregunta,
+                respuesta: respuesta
             }
     
-            db.user.create(user)
+            db.User.create(user)
             .then(function() {
-                res.redirect("/registracion");
+                res.redirect("/user/registracion");
             })
 
         },
