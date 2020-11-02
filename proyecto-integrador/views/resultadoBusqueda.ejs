@@ -37,23 +37,19 @@
     <main>
         <div class="uk-section uk-section-small">
             <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
-               
-                <h2>(Mostar resultados de busqueda)</h2>
                 <ul>
                     <% for( let i = 0; i < usuarios.length; i++ ) { %>
                         <li>
-                            <%= usuarios[i].nombre %> 
+                            <%= usuarios[i].username  %> 
                         </li>    
                     <% } %>
                 </ul>
-
             </div>
         </div>
     </main>
 
 
     <%-include("partials/footer") %> 
-
 
 
 </body>

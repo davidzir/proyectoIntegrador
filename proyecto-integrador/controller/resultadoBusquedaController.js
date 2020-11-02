@@ -14,10 +14,16 @@ let resultadoBusquedaController = {
     db.User.findAll(
         {
             where: [
-                { nombre: { [op.like]: "%" + queBuscoElUsuario + "%"} },
-                {apelllido: {[op.like]: "%" + queBuscoElUsuario + "%"} },
-                { mail: { [op.like]: "%" + queBuscoElUsuario + "%"} },
-            ],
+                //buscar op OR
+{[op.or]: [{username: { [op.like]: "%" + queBuscoElUsuario + "%"}},
+{mail: { [op.like]: "%" + queBuscoElUsuario + "%"}
+
+}]}
+              //  { username: { [op.like]: "%" + queBuscoElUsuario + "%"} }
+                //{apellido: {[op.like]: "%" + queBuscoElUsuario + "%"} },
+          //, { mail: { [op.like]: "%" + queBuscoElUsuario + "%"} }
+          ,]
+            ,
             // order: ["release_date"],
             //limit: 2
         }

@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
 
             },
 
-            dni: {
+            password: {
 
                 type: DataTypes.INTEGER
 
@@ -41,7 +41,11 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.STRING
 
             },
+            username: {
 
+                type: DataTypes.STRING
+
+            }
 
         }
     
