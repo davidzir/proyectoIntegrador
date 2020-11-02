@@ -23,7 +23,7 @@ let resultadoBusquedaController = {
         }
     )
     .then(function(usuarios) {
-        res.render("resultadoBusqueda", {usuarios: usuarios});
+        res.render("resultadoBusqueda", {usuarios: usuarios, usuarioLog: req.session.usuarioLog}); //????
     })
     },
 

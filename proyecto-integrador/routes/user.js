@@ -12,7 +12,7 @@ router.post('/registracion', userController.storeUser);
 router.get('/detalleUsuario', userController.detalleUsuario);
 
 router.get('/login', userController.login);
-// router.post('/login', userController.login);
+ router.post('/login', userController.processLogin);
 
 router.get('/home', userController.home);
 

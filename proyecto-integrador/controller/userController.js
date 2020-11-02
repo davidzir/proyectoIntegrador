@@ -2,18 +2,22 @@ const db = require('../db/models');
 const bcrypt = require('bcryptjs');
 //  operadores
  const op = db.Sequelize.Op;
+let usuarioLog 
  
 
     let userController = {
 
 
         registracion: function (req, res) {
-
-            res.render("registracion");
+            if (req.session.usuarioLog != undefined) {
+                res.redirect("/miPerfil");
+            }            res.render("registracion");
         },
 
         storeUser: function(req, res) {
-    
+            if (req.session.usuarioLog != undefined) {
+                res.redirect("/miPerfil");
+            }
             let nombre = req.body.nombre;
             let apellido = req.body.apellido;
             let username = req.body.username;
@@ -22,6 +26,8 @@ const bcrypt = require('bcryptjs');
             let edad = req.body.edad;
             let pregunta = req.body.pregunta;
             let respuesta = req.body.respuesta;
+            
+            //recordar punto 4.3
     
             let user = {
                 nombre: nombre,
@@ -32,6 +38,7 @@ const bcrypt = require('bcryptjs');
                 edad: edad,
                 pregunta: pregunta,
                 respuesta: respuesta
+                
             }
     
             db.User.create(user)
@@ -42,30 +49,88 @@ const bcrypt = require('bcryptjs');
         },
 
         miPerfil: function(req, res) {
-
+            if (req.session.usuarioLog != undefined) {
+                res.redirect("/miPerfil");
+            }
             res.render("miPerfil");
         },
 
 
         detalleUsuario: function(req, res) {
-
+            if (req.session.usuarioLog != undefined) {
+                res.redirect("/miPerfil");
+            }
             res.render("detalleUsuario")
         },
 
 
         login: function(req, res) {
-
-            res.render("login")
+            //if (req.session.usuarioLog != undefined) {
+               // res.redirect("/miPerfil");
+        //}
+            res.render("login"); 
         },
 
+        processLogin: function (req, res) {
+            console.log(req.body);
+           
+            // Caso 1: El mail no esta en la base de datos y yo voy a tener que decirle al usuario: NO EXISTE
+            // Caso 2: El mail si existe pero la contraseña esta mal. Le tengo que decir al usuario: Usuario invalido
+            // Caso 3: Bienvenido!
 
+            // Casos que no voy a hacer: Dejaste los campos vacios. El mail no es un mail directamente.
+
+
+            // findAll retorna SIEMPRE un array. Si no matchean los datos findAll traer un array vacío pero SIEMPRE trae un array
+            // findOne en cambio tiene dos opciones. O trae el dato, o trae null.
+            db.User.findOne(
+                {
+                    where: [
+                        { mail: req.body.mail },
+                    ]
+                }
+            )
+                .then(function (usuario) {
+                    if (usuario == null) {
+                        // redirect que vaya a login pero ademas a la ruta del redirct agregarle un query (/users/login?error=usuario)
+                        // en el controler que me muestra el formulariorecupero el error (req.query.error) si el error es usuario renderizo el login y le mando el mensaje que yo quiera mostrar
+                        //en la vista tomo e error que mande desde el controler y lo muestro como sea
+                        res.send("El mail no existe")
+                    } else if (bcrypt.compareSync(req.body.password, usuario.password) == false) {
+                        res.send("Mala contraseña")
+                    } else {
+                        req.session.usuarioLog = usuario;
+                        //guardo info en sesion y se puede usar para cualquoer control.Guardo en sesion datos de usuario que se acaba de loguear.
+
+                        if (req.body.remember != undefined) {
+                            res.cookie("idDelUsuarioLogueado", usuario.id, { maxAge: 1000 * 3600 });
+                        }
+
+                        res.redirect("/miPerfil");
+                        // Todo bien!
+                    }
+                })
+                .catch(function(error){
+                    console.log(error)
+                })
+
+
+        },
+
+        logout: function (req, res) {
+            req.session.usuarioLog = undefined;
+
+            res.redirect("/home");
+        },
+    
+        
         home: function(req, res) {
 
             res.render("home")
-        },
+     }}
 
 
-    }
+   // }
 
 
 

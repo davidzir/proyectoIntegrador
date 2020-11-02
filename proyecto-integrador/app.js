@@ -2,7 +2,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+var app = express()
 
 // traemos las rutas
 
@@ -11,8 +11,17 @@ let postRouter = require('./routes/post')
 let userRouter = require('./routes/user')
 let resultadoBusquedaRouter = require("./routes/resultadoBusqueda")
 
+var session = require("express-session")
+app.use(session({ secret: "mensaje secreto" }))
+//reslocals comparte info con todas las vistas
+app.use(function (req, res, next) {
 
+    res.locals = {
+        usuarioLog: req.session.usuarioLog
+    }
 
+    next();
+})
 
 var app = express();
 
@@ -39,8 +48,6 @@ app.use("/resultado", resultadoBusquedaRouter)
 
 
 
-var session = require("express-session")
-app.use(session({secret: "mensaje secreto"}))
 
 
 
