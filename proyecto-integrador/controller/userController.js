@@ -51,7 +51,7 @@ let usuarioLog
 
         miPerfil: function(req, res) {
             if (req.session.usuarioLog != undefined) {
-                res.redirect("/miPerfil");
+                res.redirect("/user/miPerfil");
             }
             res.render("miPerfil");
         },
@@ -66,9 +66,9 @@ let usuarioLog
 
 
         login: function(req, res) {
-            //if (req.session.usuarioLog != undefined) {
-               // res.redirect("/miPerfil");
-        //}
+            if (req.session.usuarioLog != undefined) {
+               res.redirect("/miPerfil");
+        }
             res.render("login"); 
         },
 
@@ -87,7 +87,8 @@ let usuarioLog
             db.User.findOne(
                 {
                     where: [
-                        { mail: req.body.mail },
+                        { mail: req.body.mail},
+                        // { username: req.body.username}
                     ]
                 }
             )
@@ -107,7 +108,7 @@ let usuarioLog
                             res.cookie("idDelUsuarioLogueado", usuario.id, { maxAge: 1000 * 3600 });
                         }
 
-                        res.redirect("/miPerfil");
+                        res.redirect("/user/miPerfil");
                         // Todo bien!
                     }
                 })
