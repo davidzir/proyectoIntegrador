@@ -4,19 +4,9 @@ module.exports = {
     "password": "root",
     "database": "proyectoIntegrador",
     "host": "127.0.0.1",
-   "dialect": "mysql",
-    "port": 8889
+    "dialect": "mysql",
+    "port": "8889"
   },
-
-// module.exports = {
-//       "development": {
-//         "username": "root",
-//         "password": null,
-//     "database": "proyectoIntegrador",
-//     "host": "127.0.0.1",
-//     "dialect": "mysql",
-//     "port": "8889"
-// },
   "test": {
     "username": "root",
     "password": null,
