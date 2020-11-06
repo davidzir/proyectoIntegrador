@@ -44,22 +44,23 @@ let usuarioLog
     
             db.User.create(user)
             .then(function() {
-                res.redirect("/user/registracion");
+                res.redirect("/user/login");
             })
 
         },
 
         miPerfil: function(req, res) {
-            if (req.session.usuarioLog != undefined) {
-                res.redirect("/user/miPerfil");
-            }
+            // if (req.session.usuarioLog != undefined) {
+            //     res.redirect("/user/miPerfil");
+            // }
+            console.log("blablalbladallmasmsasalskslkslksldkdsldksdlksldksldksldksldkvdlksl    " + req.session.usuarioLog)
             res.render("miPerfil");
         },
 
 
         detalleUsuario: function(req, res) {
             if (req.session.usuarioLog != undefined) {
-                res.redirect("/miPerfil");
+               return res.redirect("/user/miPerfil");
             }
             res.render("detalleUsuario")
         },
@@ -67,7 +68,7 @@ let usuarioLog
 
         login: function(req, res) {
             if (req.session.usuarioLog != undefined) {
-               res.redirect("/miPerfil");
+              return res.redirect("/user/miPerfil");
         }
             res.render("login"); 
         },
@@ -122,7 +123,7 @@ let usuarioLog
         logout: function (req, res) {
             req.session.usuarioLog = undefined;
 
-            res.redirect("/home");
+            return res.redirect("/user/home");
         },
     
         
