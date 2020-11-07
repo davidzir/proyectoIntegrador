@@ -5,8 +5,6 @@ let resultadoBusquedaController = require('../controller/resultadoBusquedaContro
 
 router.get('/', resultadoBusquedaController.busqueda);
 
-router.post("/", resultadoBusquedaController.search);
-
 
   
 module.exports = router

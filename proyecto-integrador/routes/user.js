@@ -16,7 +16,9 @@ router.get('/login', userController.login);
 
 router.get('/home', userController.home);
 
+router.get("/:id", userController.detail)
 
+router.get("/:id", userController.detail)
 
 
 

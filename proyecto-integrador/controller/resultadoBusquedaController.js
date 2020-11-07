@@ -31,12 +31,9 @@ let resultadoBusquedaController = {
     .then(function(usuarios) {
         res.render("resultadoBusqueda", {usuarios: usuarios});
     })
-    },
-
-    search: function(req, res) {
-        
-
     }
+
+    
     
 
 

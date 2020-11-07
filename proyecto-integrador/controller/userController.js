@@ -130,7 +130,26 @@ let usuarioLog
         home: function(req, res) {
 
             res.render("home")
-     }}
+     },
+    
+     detail:function(req,res) {
+
+        let idUser = req.params.id
+        db.User.findByPk(idUser)
+
+        .then(function(usuario) {
+
+            res.render("detalleUsuario", {usuario: usuario});
+            
+        })
+    }
+    
+    
+    
+    
+    
+    
+    }
 
 
    // }
