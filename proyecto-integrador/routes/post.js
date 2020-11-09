@@ -7,6 +7,8 @@ router.get('/agregar', postController.agregar);
 
 router.get('/detalle', postController.detalle);
 
+router.get('/home', postController.home);
+
 
 
 

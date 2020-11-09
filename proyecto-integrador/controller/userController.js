@@ -128,12 +128,48 @@ let usuarioLog
         },
     
         
-        home: function(req, res) {
 
-            res.render("home")
-     },
+
+        edit: function(req, res) {
+
+            res.render("edit")
+
+        },
+
+        editar: function(req, res) {
+
+            let nombre = req.body.nombre;
+            let apellido = req.body.apellido;
+            let username = req.body.username;
+            let password = bcrypt.hashSync(req.body.password, 10);
+            let mail = req.body.mail;
+            let edad = req.body.edad;
+            let pregunta = req.body.pregunta;
+            let respuesta = req.body.respuesta;
+            
+            //recordar punto 4.3
     
-     detail:function(req,res) {
+            let user = {
+                nombre: nombre,
+                apellido: apellido,
+                username: username,
+                password: password,
+                mail: mail,
+                edad: edad,
+                pregunta: pregunta,
+                respuesta: respuesta
+                
+            }
+    
+            db.User.edit(user)
+            .then(function() {
+                res.redirect("/user/miPerfil");
+            })
+
+
+        },
+        
+        detail:function(req,res) {
 
         let idUser = req.params.id
         db.User.findByPk(idUser)
