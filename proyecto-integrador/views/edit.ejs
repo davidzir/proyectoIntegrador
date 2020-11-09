@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="icon"
+        href="https://w7.pngwing.com/pngs/624/811/png-transparent-computer-icons-facebook-social-media-f-logo-cross-brand.png"
+        type="image/x-icon">
+
+
+    <!-- LINK A LOS CSS  (TENEMOS QUE HACER OTRO FORM) -->
+    <link rel="stylesheet" href="/stylesheets/registracion.css">
+    <link rel="stylesheet" href="/stylesheets/header.css">
+    <link rel="stylesheet" href="/stylesheets/general.css">
+    <link rel="stylesheet" href="/stylesheets/footer.css">
+
+
+    <!-- UiKit -->
+    <!-- <link rel="stylesheet" href="css/uikit.min.css">
+    <script src="js/uikit-icons.min.js"></script>
+    <script src="js/uikit.min.js"></script> -->
+    <!-- UiKit -->
+
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit-icons.min.js"></script>
+</head>
+
+<body>
+    <%-include("partials/header") %>
+
+    <main>
+        <div class="uk-section uk-section-small">
+            <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
+
+
+                <!-- EMPIEZA FORM -->
+
+                <form action="/user/edit" method="post">
+
+                    <h2>Complete su formulario de registración</h2>
+
+                    <label for="">Nombre</label> <br>
+                    <input type="text" name="nombre" id="" placeholder="Nombre"><br>
+
+                    <label for="">Apellido</label> <br>
+                    <input type="text" name="apellido" id="" placeholder="Apellido"><br>
+
+                    <label for="">Nombre de usuario</label> <br>
+                    <input type="text" name="username" id="" placeholder="Nombre de usuario"><br>
+
+                    <label for="">Mail</label><br>
+                    <input type="mail" name="mail" id="" placeholder="Mail" required="@"><br>
+
+                    <label for="">Contraseña</label><br>
+                    <input type="password" name="password" id="" placeholder="Password" required="password"><br>
+
+                    <label for="">Fecha de Nacimiento</label><br>
+                    <input type="date" name="fecha" id="" placeholder="Fecha de nacimiento"><br>
+
+
+                    <label for="">Pregunta de seguridad</label> <br>
+
+                    <select name="preguntaDeSeguridad" id=""><br>
+                        <option value="1">Cual es el nombre de tu perro?</option>
+                        <option value="2">En que ciudad se conocieron tus padres? </option>
+                        <option value="3">Como se llama el colegio de tu infancia?</option>
+                    </select> <br>
+
+
+                    <label for="">Respuesta</label><br>
+                    <input type="text" name="respuestaDeSeguridad"><br>
+
+                    <input type="submit" value="Submit">
+
+
+                </form>
+                <!-- TERMINA FORM -->
+
+            </div>
+        </div>
+    </main>
+
+    <%-include("partials/footer") %>
+</body>
+
+</html>

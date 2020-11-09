@@ -18,7 +18,12 @@ router.get("/logout", userController.logout)
 
 router.get('/home', userController.home);
 
+router.get('/edit', userController.registracion);
+router.post('/editar', userController.storeUser);
+
 router.get("/:id", userController.detail);
+
+
 
 
 
