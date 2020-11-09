@@ -12,11 +12,15 @@ router.post('/registracion', userController.storeUser);
 router.get('/detalleUsuario', userController.detalleUsuario);
 
 router.get('/login', userController.login);
- router.post('/login', userController.processLogin);
+router.post('/login', userController.processLogin);
+
+router.get("/logout", userController.logout)
 
 router.get('/home', userController.home);
 
-router.get("/:id", userController.detail)
+router.get("/:id", userController.detail);
+
+
 
 
 

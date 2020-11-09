@@ -120,10 +120,11 @@ let usuarioLog
 
         },
 
-        logout: function (req, res) {
-            req.session.usuarioLog = undefined;
+        logout: function(req, res) {
 
-            return res.redirect("/user/home");
+            req.session.usuarioLog = undefined;
+    
+            res.redirect("/user/home")
         },
     
         
@@ -137,14 +138,14 @@ let usuarioLog
         let idUser = req.params.id
         db.User.findByPk(idUser)
 
-        .then(function(usuario) {
+        .then(function(usuarios) {
 
-            res.render("detalleUsuario", {usuario: usuario});
+            res.render("detalleUsuario", {usuarios: usuarios});
             
         })
     }
-    
-    
+
+
     
     
     

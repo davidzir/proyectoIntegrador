@@ -9,7 +9,21 @@
                     <ul class="uk-flex uk-flex-between uk-flex-middle">
                         <li><a href="/user/home">Home</a></li>
                         <li><a href="/post/agregar">Postear</a></li>
-                        <li><a href="/user/miperfil">Perfil</a></li>
+
+                        <% if (usuarioLog == undefined) { %>
+
+                        <li><a href="/user/registracion">Registración</a></li>
+                        <li><a href="/user/Login">Login</a></li>
+
+                        <% } else { %>
+
+                        <li><a href="/user/miPerfil">Perfil de <%=usuarioLog.nombre%></a></li>
+
+                            
+                        <li><a href="/user/Logout">Logout</a></li>
+
+                        <% } %>
+
                     </ul>
                 </div>
                 <div class="uk-navbar-right">
@@ -17,16 +31,16 @@
                         <li>
                             <form action="/resultado" class="uk-search uk-search-default" method="GET">
                                 <span uk-search-icon></span>
-                                <input type="search" name="buscador" class="uk-search-input" placeholder="Buscar...">
+                                <input name="buscador" type="search" class="uk-search-input" placeholder="Buscar...">
                             </form>
                         </li>
                     </ul>
                 </div>
 
-
+                <!-- link al css -->
                 <link rel="stylesheet" href="/stylesheets/header.css">
 
-                
+
             </nav>
         </div>
     </section>
