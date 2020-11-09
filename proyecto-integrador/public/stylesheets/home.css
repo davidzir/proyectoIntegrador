@@ -74,3 +74,8 @@ article.post div.post-comentarios ul li p{
     height: 500px;
 object-fit: cover;
 } */
+
+ul li {
+    list-style-type: none;
+
+}
