@@ -35,13 +35,19 @@
     <%-include("partials/headerLogueado") %> 
 
     <main>
+
         <div class="uk-section uk-section-small">
             <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
+<% if (usuarios.length == 0) {  %>
+ <h2>no encontre nada</h2>
+<% } %>
                 <ul>
                     
                     <% for( let i = 0; i < usuarios.length; i++ ) { %>
+
                         <li>
-                            <a href="/user/ <%= usuarios[i].id %> ">   
+                            
+                            <a href="/user/<%=usuarios[i].id%>">  
                             <%= usuarios[i].username  %> 
                         </a>
                         </li>    

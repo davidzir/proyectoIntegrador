@@ -18,7 +18,6 @@ router.get('/home', userController.home);
 
 router.get("/:id", userController.detail)
 
-router.get("/:id", userController.detail)
 
 
 

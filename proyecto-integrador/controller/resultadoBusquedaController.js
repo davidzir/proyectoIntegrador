@@ -15,10 +15,10 @@ let resultadoBusquedaController = {
         {
             where: [
                 //buscar op OR
-{[op.or]: [{username: { [op.like]: "%" + queBuscoElUsuario + "%"}},
-{mail: { [op.like]: "%" + queBuscoElUsuario + "%"}
-
-}]}
+{[op.or]: [
+    {username: { [op.like]: "%" + queBuscoElUsuario + "%"}},    
+    {mail: { [op.like]: "%" + queBuscoElUsuario + "%"}}
+]}
               //  { username: { [op.like]: "%" + queBuscoElUsuario + "%"} }
                 //{apellido: {[op.like]: "%" + queBuscoElUsuario + "%"} },
           //, { mail: { [op.like]: "%" + queBuscoElUsuario + "%"} }
