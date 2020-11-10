@@ -9,16 +9,14 @@ let usuarioLog
 
 
         registracion: function (req, res) {
-            // if (req.session.usuarioLog != undefined) {
-            //     res.redirect("/miPerfil");
-            // }            
+            if (req.session.usuarioLog != undefined) {
+                return res.redirect("/user/miPerfil");
+          }        
             res.render("registracion");
         },
 
         storeUser: function(req, res) {
-            // if (req.session.usuarioLog != undefined) {
-            //     res.redirect("/miPerfil");
-            // }
+
             let nombre = req.body.nombre;
             let apellido = req.body.apellido;
             let username = req.body.username;
@@ -53,16 +51,8 @@ let usuarioLog
             // if (req.session.usuarioLog != undefined) {
             //     res.redirect("/user/miPerfil");
             // }
-            console.log("blablalbladallmasmsasalskslkslksldkdsldksdlksldksldksldksldkvdlksl    " + req.session.usuarioLog)
+            // console.log("blablalbladallmasmsasalskslkslksldkdsldksdlksldksldksldksldkvdlksl    " + req.session.usuarioLog)
             res.render("miPerfil");
-        },
-
-
-        detalleUsuario: function(req, res) {
-            if (req.session.usuarioLog != undefined) {
-               return res.redirect("/user/miPerfil");
-            }
-            res.render("detalleUsuario")
         },
 
 
@@ -74,7 +64,8 @@ let usuarioLog
         },
 
         processLogin: function (req, res) {
-            console.log(req.body);
+
+            let usuario = req.body.mail
            
             // Caso 1: El mail no esta en la base de datos y yo voy a tener que decirle al usuario: NO EXISTE
             // Caso 2: El mail si existe pero la contraseña esta mal. Le tengo que decir al usuario: Usuario invalido
@@ -88,17 +79,23 @@ let usuarioLog
             db.User.findOne(
                 {
                     where: [
-                        { mail: req.body.mail},
-                        // { username: req.body.username}
+                        { 
+
+                            [op.or]: [
+                                {username: { [op.like]: "%" + usuario + "%"}},    
+                                {mail: { [op.like]: "%" + usuario + "%"}}
+                            ]
+
+                        },
+
                     ]
-                }
-            )
+                })
                 .then(function (usuario) {
                     if (usuario == null) {
                         // redirect que vaya a login pero ademas a la ruta del redirct agregarle un query (/users/login?error=usuario)
                         // en el controler que me muestra el formulariorecupero el error (req.query.error) si el error es usuario renderizo el login y le mando el mensaje que yo quiera mostrar
                         //en la vista tomo e error que mande desde el controler y lo muestro como sea
-                        res.send("El mail no existe")
+                        res.send("El usuario no existe")
                     } else if (bcrypt.compareSync(req.body.password, usuario.password) == false) {
                         res.send("Mala contraseña")
                     } else {
@@ -124,7 +121,7 @@ let usuarioLog
 
             req.session.usuarioLog = undefined;
     
-            res.redirect("/user/home")
+            res.redirect("/post/home")
         },
     
         
@@ -132,7 +129,36 @@ let usuarioLog
 
         edit: function(req, res) {
 
-            res.render("edit")
+
+            let nombre = req.body.nombre;
+            let apellido = req.body.apellido;
+            let username = req.body.username;
+            // let password = bcrypt.hashSync(req.body.password, 10);
+            let mail = req.body.mail;
+            let edad = req.body.edad;
+            let pregunta = req.body.pregunta;
+            let respuesta = req.body.respuesta;
+
+            //recordar punto 4.3
+    
+            let user = {
+                nombre: nombre,
+                apellido: apellido,
+                username: username,
+                // password: password,
+                mail: mail,
+                edad: edad,
+                pregunta: pregunta,
+                respuesta: respuesta
+                
+            }
+
+            db.User.findAll(user)
+            .then(function() {
+                res.render("edit");
+            })
+    
+
 
         },
 
@@ -141,27 +167,34 @@ let usuarioLog
             let nombre = req.body.nombre;
             let apellido = req.body.apellido;
             let username = req.body.username;
-            let password = bcrypt.hashSync(req.body.password, 10);
+            // let password = bcrypt.hashSync(req.body.password, 10);
             let mail = req.body.mail;
             let edad = req.body.edad;
             let pregunta = req.body.pregunta;
             let respuesta = req.body.respuesta;
-            
+
             //recordar punto 4.3
     
             let user = {
                 nombre: nombre,
                 apellido: apellido,
                 username: username,
-                password: password,
+                // password: password,
                 mail: mail,
                 edad: edad,
                 pregunta: pregunta,
                 respuesta: respuesta
                 
             }
+
+            
     
-            db.User.edit(user)
+            db.User.update({user},{
+                where: {
+                    id: req.params.id
+                }
+            })
+
             .then(function() {
                 res.redirect("/user/miPerfil");
             })
@@ -169,7 +202,7 @@ let usuarioLog
 
         },
         
-        detail:function(req,res) {
+        detail: function(req, res) {
 
         let idUser = req.params.id
         db.User.findByPk(idUser)

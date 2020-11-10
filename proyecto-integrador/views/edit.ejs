@@ -41,31 +41,37 @@
 
                 <!-- EMPIEZA FORM -->
 
-                <form action="/user/edit" method="get">
+                <form action="/user/edit" method="POST">
 
                     <h2>Edite su usuario</h2>
 
                     <label for="">Nombre</label> <br>
-                    <input type="text" name="nombre" id="" placeholder="Nombre"><br>
+                    <input type="text" name="nombre" id="" placeholder="Nombre" value="<%= usuarioLog.nombre %>"><br>
 
                     <label for="">Apellido</label> <br>
-                    <input type="text" name="apellido" id="" placeholder="Apellido"><br>
+                    <input type="text" name="apellido" id="" placeholder="Apellido" value="<%= usuarioLog.apellido %>"><br>
 
                     <label for="">Nombre de usuario</label> <br>
-                    <input type="text" name="username" id="" placeholder="Nombre de usuario"><br>
+                    <input type="text" name="username" id="" placeholder="Nombre de usuario" value="<%= usuarioLog.username %>"><br>
 
                     <label for="">Mail</label><br>
-                    <input type="mail" name="mail" id="" placeholder="Mail" required="@"><br>
+                    <input type="mail" name="mail" id="" placeholder="Mail" required="@" value="<%= usuarioLog.mail %>"><br>
 
                     <label for="">Contraseña</label><br>
-                    <input type="password" name="password" id="" placeholder="Password" required="password"><br>
+                    <input type="password" name="password" id="" placeholder="Password" required="password" value="<%= usuarioLog.password %>"><br>
 
                     <label for="">Fecha de Nacimiento</label><br>
-                    <input type="date" name="fecha" id="" placeholder="Fecha de nacimiento"><br>
+                    <input type="date" name="fecha" id="" placeholder="Fecha de nacimiento" value="<%= usuarioLog.fecha %>"><br>
+
+
+                    <a href="/user/edit/<%= usuarioLog.id  %> ">
+                        <button type="Submit">Editar</button>
+                    </a>
 
 
 
-                    <input type="submit" value="Submit">
+                    
+
 
 
                 </form>

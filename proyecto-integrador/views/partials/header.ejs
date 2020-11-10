@@ -7,8 +7,9 @@
                 </div>
                 <div class="uk-navbar-center">
                     <ul class="uk-flex uk-flex-between uk-flex-middle">
+
+
                         <li><a href="/post/home">Home</a></li>
-                        <li><a href="/post/agregar">Postear</a></li>
 
                         <% if (usuarioLog == undefined) { %>
 
@@ -17,7 +18,9 @@
 
                         <% } else { %>
 
-                        <li><a href="/user/miPerfil">Perfil de <%=usuarioLog.nombre%></a></li>
+                        <li><a href="/post/agregar">Postear</a></li>
+
+                        <li><a href="/user/miPerfil"><%=usuarioLog.username%></a></li>
 
                             
                         <li><a href="/user/Logout">Logout</a></li>
