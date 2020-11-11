@@ -74,7 +74,7 @@ let usuarioLog
         },
 
         processLogin: function (req, res) {
-            console.log(req.body);
+           // console.log(req.body);
            
             // Caso 1: El mail no esta en la base de datos y yo voy a tener que decirle al usuario: NO EXISTE
             // Caso 2: El mail si existe pero la contraseña esta mal. Le tengo que decir al usuario: Usuario invalido
@@ -161,7 +161,7 @@ let usuarioLog
                 
             }
     
-            db.User.edit(user)
+            db.User.update(user)
             .then(function() {
                 res.redirect("/user/miPerfil");
             })
