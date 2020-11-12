@@ -6,18 +6,7 @@ let postController = {
         res.render("agregarPost")
     },
 
-    guardar: function (req, res) {
-
-        db.psost.create({
-            // usuario_id: req.body.usuario_id,
-            url_perfil: req.body.url_perfil,
-            texto_post: req.body.texto_post,
-            fecha_creacion: req.body.fecha_creacion
-        });
-
-        res.redirect('/post/home')
-
-    },
+ 
 
     detalle: function (req,res) {
         res.render("detallePost")
@@ -70,10 +59,23 @@ let postController = {
         console.log(posts);
         db.posts.create(posts)
             .then(function () {
-                res.redirect("/home");
+                res.redirect("home");
             })
 
     },
+    guardar: function (req, res) {
+
+        db.post.create(
+            {
+            usuario_id: req.session.usuarioLog.id,
+            url_perfil: req.body.url_perfil,
+            texto_post: req.body.texto_post,
+            // fecha_creacion: req.body.fecha_creacion
+        });
+
+        res.redirect("/post/home")
+
+    }
 
 
 
