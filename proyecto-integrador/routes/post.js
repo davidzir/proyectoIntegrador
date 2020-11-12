@@ -9,6 +9,8 @@ router.get('/agregar', postController.guardar)
 router.get('/detalle', postController.detalle);
 
 router.get('/home', postController.home);
+router.get('/agregar', postController.agregarPost);
+router.get('/agregar', postController.storePost)
 
 
 
