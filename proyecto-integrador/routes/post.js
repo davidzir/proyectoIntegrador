@@ -5,6 +5,7 @@ let postController = require("../controller/postController")
 
 router.get('/agregar', postController.agregar);
 router.get('/agregar', postController.guardar)
+//punto 7.1
 
 router.get('/detalle', postController.detalle);
 

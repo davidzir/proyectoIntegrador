@@ -8,7 +8,7 @@ let postController = {
 
     guardar: function (req, res) {
 
-        db.Post.create({
+        db.psost.create({
             // usuario_id: req.body.usuario_id,
             url_perfil: req.body.url_perfil,
             texto_post: req.body.texto_post,
