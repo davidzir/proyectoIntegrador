@@ -2,7 +2,7 @@ const db = require('../db/models');
 const bcrypt = require('bcryptjs');
 //  operadores
  const op = db.Sequelize.Op;
-let usuarioLog 
+// let usuarioLog 
  
 
     let userController = {
@@ -164,6 +164,7 @@ let usuarioLog
         },
 
         editar: function(req, res) {
+            //return res.send(req.body);
 
             let nombre = req.body.nombre;
             let apellido = req.body.apellido;
@@ -181,23 +182,21 @@ let usuarioLog
                 apellido: apellido,
                 username: username,
                 // password: password,
-                mail: mail,
-                edad: edad,
-                pregunta: pregunta,
-                respuesta: respuesta
-                
+                mail: mail,  
             }
 
+            console.log(req.body);
+            console.log("00000000000000000000000000000000000000000");
+            console.log(user);
             
-    
-            db.User.update(user)
-            db.User.update({user},{
-                where: {
-                    id: req.params.id
-                }
+            db.User.update(user,{
+                where: [{
+                    id: req.body.id
+                }]
             })
 
             .then(function() {
+                console.log("en el then");
                 res.redirect("/user/miPerfil");
             })
 

@@ -44,6 +44,7 @@
                 <form action="/user/edit" method="POST">
 
                     <h2>Edite su usuario</h2>
+                    <input type="hidden" name="id" value="<%= usuarioLog.id  %>">
 
                     <label for="">Nombre</label> <br>
                     <input type="text" name="nombre" id="" placeholder="Nombre" value="<%= usuarioLog.nombre %>"><br>
@@ -64,14 +65,8 @@
                     <input type="date" name="fecha" id="" placeholder="Fecha de nacimiento" value="<%= usuarioLog.fecha %>"><br>
 
 
-                    <a href="/user/edit/<%= usuarioLog.id  %> ">
-                        <button type="Submit">Editar</button>
-                    </a>
-
-
-
                     
-
+                        <button type="Submit">Editar</button>
 
 
                 </form>

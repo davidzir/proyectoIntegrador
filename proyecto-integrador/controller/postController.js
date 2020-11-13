@@ -8,7 +8,26 @@ let postController = {
             res.redirect("login");
         }
 
-        res.render("agregarPost")
+        let usuarioLog = req.session.usuarioLog.id;
+        let url_perfil = req.body.url_perfil;
+        let texto_post = req.body.texto_post;
+        let fecha_creacion = req.body.fecha_creacion;
+
+        let post = {
+            usuario_id: usuarioLog,
+            url_perfil: url_perfil,
+            texto_post: texto_post,
+            fecha_creacion: fecha_creacion
+        }
+
+        db.post.findAll(post)
+
+        .then(function(post){
+            res.render("agregarPost",{post: post})
+
+        })
+
+
 
     },
 
@@ -67,7 +86,18 @@ let postController = {
 
 
     detalle: function (req,res) {
-        res.render("detallePost")
+
+        let id = req.params.id;
+
+        db.post.findByPk(id)
+            .then(function(post){
+
+            res.render("detallePost", {post:post})
+
+        })
+
+        // res.render('detallePost')
+
         
     },
 
@@ -84,9 +114,24 @@ let postController = {
             res.render("home", {post:post})
 
         })
+    },
+
+    borrar: function(req, res) {
+        db.post.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+        res.redirect('/user/miPerfil')
 
 
+    },
 
+    editar: function(req, res) {
+        db.post.findAll(req.params.id)
+        .then(function(post) {
+            res.render('edit')
+        })
     }
 
 

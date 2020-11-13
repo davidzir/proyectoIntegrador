@@ -63,7 +63,7 @@
                     <div class="uk-margin" uk-margin>
                         <div uk-form-custom="target: true">
                             <!-- <input type="text">  -->
-                            <input class="uk-input uk-form-width-medium" type="text" placeholder="Paste image link" name="url_perfil" value="">
+                            <input class="uk-input uk-form-width-medium" type="text" placeholder="Paste image link" name="url_perfil" value="<%= post.url_perfil %>">
                         </div>
                     </div>
 
@@ -76,7 +76,7 @@
                     <div class="uk-margin">
                         <label class="uk-form-label" for="form-stacked-text">Descripcion del post</label>
                         <div class="uk-form-controls">
-                            <input class="uk-input" id="form-stacked-text" type="text" placeholder="escriba aqui" name="texto_post" value="">
+                            <input class="uk-input" id="form-stacked-text" type="text" placeholder="escriba aqui" name="texto_post" value="<%= post.texto_post %>">
                         </div>
                     </div>
 <!-- 
