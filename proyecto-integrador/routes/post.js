@@ -4,15 +4,14 @@ let postController = require("../controller/postController")
 
 
 router.get('/agregar', postController.agregar);
-// router.get('/agregar', postController.guardar)
-//punto 7.1
+router.post('/agregar', postController.guardar)
 
 router.get('/detalle', postController.detalle);
 
 router.get('/home', postController.home);
-// router.get('/agregar', postController.agregarPost);
+
 // router.get('/agregar', postController.storePost)
-router.post("/agregarpost", postController.guardar)
+// router.post("/agregarpost", postController.guardar)
 
 
 

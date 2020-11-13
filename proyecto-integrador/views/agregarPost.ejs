@@ -37,30 +37,61 @@
 
     <main>
         <div class="uk-section uk-section-small">
-            <div class="uk-container uk-container-large uk-flex">
+            <div class="uk-container uk-container-large uk-flex"> 
 
               <!-- EMPIEZA FORM -->
 
-              <!-- <form action="agregar" method="POST">
+                <form action="/post/agregar" method="POST">
 
-                <label for="">url perfil</label><br>
-                    <input type="text" name="url_perfil" id=""><br>
+                    
+                    <div class="uk-margin">
+                        <div uk-form-custom> 
+                            <span class="uk-link">Elegi una foto</span>
+                            <input type="file">
+                        </div>
 
-                    <label for="">descripcion del post</label><br>
-                    <input type="text" name="" id="texto_post"><br>
 
+                        <span class="uk-text-middle"> y copia el link aca abajo</span>
+
+                    </div>
+
+
+                    
+                    <!-- <label for="">url perfil</label><br>
+                    <input type="text" name="url_perfil" id=""><br> -->
+
+
+                    <div class="uk-margin" uk-margin>
+                        <div uk-form-custom="target: true">
+                            <!-- <input type="text">  -->
+                            <input class="uk-input uk-form-width-medium" type="text" placeholder="Paste image link" name="url_perfil" value="">
+                        </div>
+                    </div>
+
+
+
+                    <!-- <label for="">descripcion del post</label><br>
+                    <input type="text" name="" id="texto_post"><br> -->
+
+
+                    <div class="uk-margin">
+                        <label class="uk-form-label" for="form-stacked-text">Descripcion del post</label>
+                        <div class="uk-form-controls">
+                            <input class="uk-input" id="form-stacked-text" type="text" placeholder="escriba aqui" name="texto_post" value="">
+                        </div>
+                    </div>
+<!-- 
                     <label for="">Fecha</label> <br>
                     <input type="date" name="fecha_creacion"> <br> -->
 
                     
 
-                    <!-- <button type="submit">Crear post</button> -->
+                    <button class="uk-button uk-button-default" type="submit">Crear post</button>
                 
                 
 
-                    
-                            
-                                </form>
+                                
+                </form>
                                 <!-- TERMINA FORM -->
 
 
@@ -70,20 +101,21 @@
     
 
    
-</body>
-<form action="/post/agregarPost" method="POST">
-<div class="uk-margin">
-    <span class="uk-text-middle">elegui la foto</span>
-    <div uk-form-custom>
-        <input type="file" >
+<!-- </body> -->
+
+<!-- <form action="/post/agregar" method="POST">
+    <div class="uk-margin">
+        <span class="uk-text-middle">Elegi la foto</span>
+          <div uk-form-custom> 
+            <input type="file">
         <span class="uk-link">upload here!</span>
+          </div>
     </div>
-</div>
 
 <div class="uk-margin" uk-margin>
     <div uk-form-custom="target: true">
         <!-- <input type="text"> -->
-        <input class="uk-input uk-form-width-medium" type="text" placeholder="Paste image link" name="url_perfil">
+        <!-- <input class="uk-input uk-form-width-medium" type="text" placeholder="Paste image link" name="url_perfil">
     </div>
 
 
@@ -96,8 +128,7 @@
     </div>
     <button class="uk-button uk-button-default">Submit</button>
 </div>
-</div>
-</form>
+</form> -->
 
 
 

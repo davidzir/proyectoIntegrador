@@ -11,7 +11,10 @@ main{
     font-family: Arial;
     text-transform: lowercase;
 
-    background-color: white;
+    background-image: white;
+    /* background-image: url("https://media.giphy.com/media/6nFKE6LmON4UD8vRRf/giphy.gif"); */
+
+
 
 
 

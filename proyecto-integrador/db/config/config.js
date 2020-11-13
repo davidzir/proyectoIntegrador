@@ -1,6 +1,8 @@
 //  module.exports = {
 //    "development": {
 //     //  "password": null,
+//      "username": "root",
+//      "password": null,
 //      "database": "proyectoIntegrador",
 //      "host": "127.0.0.1",
 //    "dialect": "mysql",
