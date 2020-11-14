@@ -40,10 +40,10 @@
 
 
                 <!-- EMPIEZA FORM -->
-
                 <form action="/user/edit" method="POST">
 
                     <h2>Edite su usuario</h2>
+
                     <input type="hidden" name="id" value="<%= usuarioLog.id  %>">
 
                     <label for="">Nombre</label> <br>
@@ -59,7 +59,7 @@
                     <input type="mail" name="mail" id="" placeholder="Mail" required="@" value="<%= usuarioLog.mail %>"><br>
 
                     <label for="">Contraseña</label><br>
-                    <input type="password" name="password" id="" placeholder="Password" required="password" value="<%= usuarioLog.password %>"><br>
+                    <input type="password" name="password" id="" placeholder="Password" required="password" value=""><br>
 
                     <label for="">Fecha de Nacimiento</label><br>
                     <input type="date" name="fecha" id="" placeholder="Fecha de nacimiento" value="<%= usuarioLog.fecha %>"><br>

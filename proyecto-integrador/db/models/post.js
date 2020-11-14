@@ -1,3 +1,4 @@
+const { Sequelize } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
     //columnas en bases de datos
     //de cada una de las columnas un objeto literal
@@ -32,7 +33,8 @@ module.exports = (sequelize, DataTypes) => {
 
             fecha_creacion: {
 
-                type: DataTypes.DATE 
+                type: DataTypes.DATE,
+                DefaultValue: Sequelize.NOW()
 
             },
 
@@ -49,6 +51,15 @@ module.exports = (sequelize, DataTypes) => {
         }
     //post seria el alias, el archivo de modelo.
         let post = sequelize.define("post", cols, config);
+
+        post.associate = function(models){
+           post.belongsTo(models.User,{
+            as: "usuarioDelPost",
+            foreignKey: "usuario_id"
+        })
+        }
+
+
     
         return post;
     }

@@ -51,9 +51,21 @@ const bcrypt = require('bcryptjs');
             // if (req.session.usuarioLog != undefined) {
             //     res.redirect("/user/miPerfil");
             // }
-            // console.log("blablalbladallmasmsasalskslkslksldkdsldksdlksldksldksldksldkvdlksl    " + req.session.usuarioLog)
-            res.render("miPerfil");
-        },
+
+            db.post.findAll({
+                where: {usuario_id : req.session.usuarioLog.id},
+                
+            })
+            .then(function(postPerfil){
+          
+                res.render("miPerfil",{postPerfil : postPerfil})
+                })
+            
+                },
+
+
+            
+
 
 
         login: function(req, res) {
@@ -169,7 +181,7 @@ const bcrypt = require('bcryptjs');
             let nombre = req.body.nombre;
             let apellido = req.body.apellido;
             let username = req.body.username;
-            // let password = bcrypt.hashSync(req.body.password, 10);
+            let password = bcrypt.hashSync(req.body.password, 10);
             let mail = req.body.mail;
             let edad = req.body.edad;
             let pregunta = req.body.pregunta;
@@ -181,7 +193,7 @@ const bcrypt = require('bcryptjs');
                 nombre: nombre,
                 apellido: apellido,
                 username: username,
-                // password: password,
+                password: password,
                 mail: mail,  
             }
 
@@ -208,9 +220,9 @@ const bcrypt = require('bcryptjs');
         let idUser = req.params.id
         db.User.findByPk(idUser)
 
-        .then(function(usuarios) {
+        .then(function(usuario) {
 
-            res.render("detalleUsuario", {usuarios: usuarios});
+            res.render("detalleUsuario", {usuario: usuario});
             
         })
     }

@@ -41,52 +41,6 @@
             <div class="uk-container uk-container-large uk-flex">
                 <section id="posts" class="uk-flex uk-flex-middle uk-flex-center uk-flex-column uk-child-width-1-2 uk-width-1-1">
 
-
-
-
-                    <article class="post uk-card-default uk-flex uk-flex-column">
-                        <div class="info-usuario uk-flex ">
-                            <div>
-                                <img src="/images/12-Elon-Musk.jpg" alt="" class="perfil">
-                            </div>
-                            <h4>elonmusk</h4>
-                            
-                        </div>
-                        <div class="post-body uk-flex uk-flex-center">
-                            <img src="/images/elonmusk.jpg" alt="" >
-                        </div>
-                        <div class="post-reacciones">
-                            <ul class="post-icons uk-flex uk-flex-between">
-                                <li><span class="" uk-icon="icon:heart; ratio: 1.3"></span>
-                                </li>
-                                <li><span class="" uk-icon="icon:comments; ratio: 1.3"></span>
-                                </li>
-                            </ul>
-                            <div class="post-pie uk-flex">
-                                <h5 class="uk-width-1-6">elonmusk</h5>
-                                <p class="uk-width-5-6">TED Talk</p>
-                            </div>
-                        </div>
-                        <div class="post-comentarios">
-                            <h6>Comentarios</h6>
-                            <ul>
-                                <li>
-                                    <a href="">leomessi</a>
-                                    <p>Sos un capo Elon!</p>
-                                </li>
-                                <li>
-                                    <a href="">kanyewest</a>
-                                    <p>Elon Musk 2020</p>
-                                </li>
-                                <a href="">Ver más...</a>
-                            </ul>
-                        </div>
-                    </article>
-
-
-
-
-
                     <ul>
                         <% for( let i = 0; i < post.length; i++ ) { %>
                      <li>
@@ -101,7 +55,7 @@
                                 <!-- FOTO DEL POST -->
                             </div>
                             <div class="post-body uk-flex uk-flex-center">
-                                <img src="https://via.placeholder.com/500x600 <%=// post[i].url_perfil  %>" alt="">
+                                <img src="<%= post[i].url_perfil  %>" alt="">
                             </div>
                             <div class="post-reacciones">
                                 <ul class="post-icons uk-flex uk-flex-between">
@@ -126,7 +80,7 @@
                                         <a href="">Usuario</a>
                                         <p>Comentario</p>
                                     </li>
-                                    <a href="/post/detalle/<%= post.id %>">Ver más...</a>
+                                    <a href="/post/detalle/<%= post[i].id %>">Ver más...</a>
                                 </ul>
                             </div>
                         </article>

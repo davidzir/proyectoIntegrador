@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webex</title>
+    <link rel="icon"
+        href="https://w7.pngwing.com/pngs/624/811/png-transparent-computer-icons-facebook-social-media-f-logo-cross-brand.png"
+        type="image/x-icon">
+
+
+        <!-- link a los css -->
+    <link rel="stylesheet" href="/stylesheets/agregarPost.css">
+    <link rel="stylesheet" href="/stylesheets/header.css">
+    <link rel="stylesheet" href="/stylesheets/general.css">
+    <link rel="stylesheet" href="/stylesheets/footer.css">
+
+    <!-- UiKit -->
+    <!-- <link rel="stylesheet" href="css/uikit.min.css">
+    <script src="js/uikit-icons.min.js"></script>
+    <script src="js/uikit.min.js"></script> -->
+    <!-- UiKit -->
+
+
+
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit-icons.min.js"></script>
+</head>
+
+<body>
+    <%-include("partials/header") %> 
+
+    <main>
+        <div class="uk-section uk-section-small">
+            <div class="uk-container uk-container-large uk-flex"> 
+
+              <!-- EMPIEZA FORM -->
+
+                <form action="/post/editar/<%= postAEditar.usuario_id %> " method="POST">
+
+                    
+                    <div class="uk-margin">
+                        <div uk-form-custom> 
+                            <span class="uk-link">Elegi una foto</span>
+                            <input type="file">
+                        </div>
+
+                        <span class="uk-text-middle"> y copia el link aca abajo</span>
+
+                    </div>
+
+
+                    
+                    <!-- <label for="">url perfil</label><br>
+                    <input type="text" name="url_perfil" id=""><br> -->
+
+
+                    <div class="uk-margin" uk-margin>
+                        <div uk-form-custom="target: true">
+                            <!-- <input type="text">  -->
+                            <input class="uk-input uk-form-width-medium" type="text" placeholder="Paste image link" name="url_perfil" value="<%= postAEditar.url_perfil %>">
+                        </div>
+                    </div>
+
+
+
+                    <!-- <label for="">descripcion del post</label><br>
+                    <input type="text" name="" id="texto_post"><br> -->
+
+
+                    <div class="uk-margin">
+                        <label class="uk-form-label" for="form-stacked-text">Descripcion del post</label>
+                        <div class="uk-form-controls">
+                            <input class="uk-input" id="form-stacked-text" type="text" placeholder="escriba aqui" name="texto_post" value="<%= postAEditar.texto_post %>">
+                        </div>
+                    </div>
+<!-- 
+                    <label for="">Fecha</label> <br>
+                    <input type="date" name="fecha_creacion"> <br> -->
+
+                    
+
+                    <button class="uk-button uk-button-default" type="submit">Editar post</button>
+                
+                
+
+                                
+                </form>
+                                <!-- TERMINA FORM -->
+
+
+            </div>
+        </div>
+    </main>
+    
+
+
+
+
+<%- include("partials/footer") %>
+</body>
+
+</html>

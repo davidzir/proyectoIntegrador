@@ -75,6 +75,11 @@ module.exports = (sequelize, DataTypes) => {
         }
     //post seria el alias, el archivo de modelo.
         let usuarios = sequelize.define("User", cols, config);
+        usuarios.associate = function(models){
+            usuarios.hasMany(models.post,{
+                as: "postsDelUsuario",
+                foreignKey: "usuario_id"
+            })}
     
         return usuarios;
     }
