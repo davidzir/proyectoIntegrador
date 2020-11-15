@@ -122,6 +122,7 @@ const bcrypt = require('bcryptjs');
                         res.redirect("/user/miPerfil");
                         // Todo bien!
                     }
+                    res.send(usuario)
                 })
                 .catch(function(error){
                     console.log(error)
@@ -131,10 +132,11 @@ const bcrypt = require('bcryptjs');
         },
 
         logout: function(req, res) {
-
-            req.session.usuarioLog = undefined;
+            res.clearCookie("idDelUsuarioLogueado")
+          //  req.session.usuarioLog = undefined;
+    req.session.destroy();
     
-            res.redirect("/post/home")
+      return      res.redirect("/post/home")
         },
     
         
