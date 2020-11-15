@@ -88,11 +88,10 @@ let postController = {
 
     home: function(req, res) {
 
-        db.post.findAll(
-            {
-                order: ["createdAt"]
-            }
-        ).then(function(post){
+        db.post.findAll({ limit: 20, order: [ ['createdAt',  'DESC'] ] })
+
+
+        .then(function(post){
 
             console.log(post);
 
@@ -132,6 +131,7 @@ let postController = {
 
 
     editar: function(req, res) {
+        
         db.post.findByPk(req.params.id)
         .then(function(postAEditar) {
             res.render('editarPost', {postAEditar: postAEditar})
@@ -141,18 +141,22 @@ let postController = {
     editarPost: function(req,res){
         let id_post = req.params.id;
         let usuario_id = req.session.usuarioLog.id;
+        let usuario_post = req.body.usuario_id;
         let url_perfil = req.body.url_perfil;
         let texto_post = req.body.texto_post
 
         let post = {
             usuario_id: usuario_id,
+            usuario_post: usuario_post,
             url_perfil : url_perfil,
             texto_post: texto_post
         }
 
-        console.log('000000000000000000000');
+        // console.log('000000000000000000000');
+
 
         db.post.findByPk(id_post)
+        
 
         .then(function(postAEditar){
             console.log(postAEditar);

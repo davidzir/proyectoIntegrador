@@ -37,6 +37,8 @@ let resultadoBusquedaController = {
     busquedax: function(req, res) {
         let queBuscoElUsuariox = "#" + req.body.buscadorx;
 
+        // db.post.findAll({ limit: 20, order: [ ['createdAt',  'DESC'] ] })
+
         db.post.findAll(
             {
                 where: [
