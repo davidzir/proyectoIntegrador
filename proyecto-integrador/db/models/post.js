@@ -31,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
 
             },
 
-            fecha_creacion: {
+            createdAt: {
 
                 type: DataTypes.DATE,
                 DefaultValue: Sequelize.NOW()
@@ -43,8 +43,8 @@ module.exports = (sequelize, DataTypes) => {
     
     //le digo como se llama la tabla de sql.
     //timestamps:Si no tengo en sql el createdAt y updatedAT en las columnas, 
-    //tenes tenes q poner false, IMPORTANTE.De lo contrario de tenerlas 
-    //poner true
+    //tenes tenes q poner false, IMPORTANTE.
+    //De lo contrario de tenerlas poner true
         let config = {
             tableName: "post",
             timestamps: false

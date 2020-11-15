@@ -55,7 +55,9 @@
                                 <!-- FOTO DEL POST -->
                             </div>
                             <div class="post-body uk-flex uk-flex-center">
-                                <img src="<%= post[i].url_perfil  %>" alt="">
+                                <a href="/post/detalle/<%= post[i].id %>">
+                                    <img src="<%= post[i].url_perfil  %>" alt="">
+                                </a>
                             </div>
                             <div class="post-reacciones">
                                 <ul class="post-icons uk-flex uk-flex-between">

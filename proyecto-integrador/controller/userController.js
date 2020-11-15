@@ -39,9 +39,26 @@ const bcrypt = require('bcryptjs');
                 respuesta: respuesta
                 
             }
+
+            // db.User.findOne({
+            //     where: {mail: req.body.mail}
+            // })
+            // .then(function(req, res) {
+            //     if(req.body.mail =! null){
+            //         res.send("Este mail ya existe!")
+
+            //     }
+            // })
     
             db.User.create(user)
             .then(function() {
+                // {
+                //     if(req.body.mail =! null){
+                //         res.send("Este mail ya existe!")
+    
+                //     }
+                // }
+
                 res.redirect("/user/login");
             })
 
@@ -227,6 +244,8 @@ const bcrypt = require('bcryptjs');
             res.render("detalleUsuario", {usuario: usuario});
             
         })
+
+        
     }
 
 
