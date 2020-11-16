@@ -68,6 +68,7 @@ const bcrypt = require('bcryptjs');
                     }
                 })
                 
+           
 
             // db.User.findOne({
             //     where: {mail: req.body.mail}
