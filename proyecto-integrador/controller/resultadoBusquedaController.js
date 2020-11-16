@@ -42,8 +42,9 @@ let resultadoBusquedaController = {
         db.post.findAll(
             {
                 where: [
-                    //buscar op OR
+                    //{[op.or]:
                     {texto_post: { [op.like]: "%" + queBuscoElUsuariox + "%"}}    
+                    //}
                 ]
             }
         )

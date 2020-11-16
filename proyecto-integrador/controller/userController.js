@@ -9,13 +9,18 @@ const bcrypt = require('bcryptjs');
 
 
         registracion: function (req, res) {
+            // Le pedimos a la session que traiga el usuario logueado, si ya existe un usuario logueado te redirije a tu perfil
             if (req.session.usuarioLog != undefined) {
                 return res.redirect("/user/miPerfil");
-          }        
+            }
+            // sino te renderiza la vista de registracion
             res.render("registracion");
         },
 
+        
         storeUser: function(req, res) {
+
+            // creamos las variables para el usuario, traidas de los name del EJS
 
             let nombre = req.body.nombre;
             let apellido = req.body.apellido;
@@ -26,9 +31,10 @@ const bcrypt = require('bcryptjs');
             let pregunta = req.body.pregunta;
             let respuesta = req.body.respuesta;
             
-            //recordar punto 4.3
+            // Creamos la variable usuario
     
             let user = {
+                //rojo: nombre de propiedades; blanco: variables de arriba
                 nombre: nombre,
                 apellido: apellido,
                 username: username,
@@ -36,8 +42,7 @@ const bcrypt = require('bcryptjs');
                 mail: mail,
                 edad: edad,
                 pregunta: pregunta,
-                respuesta: respuesta
-                
+                respuesta: respuesta 
             }
 
             // db.User.findOne({
@@ -51,6 +56,7 @@ const bcrypt = require('bcryptjs');
             // })
     
             db.User.create(user)
+            //una vez creado el usuario, usamos un then xq es una promesa y te redirije al login 
             .then(function() {
                 // {
                 //     if(req.body.mail =! null){
@@ -78,7 +84,7 @@ const bcrypt = require('bcryptjs');
                 res.render("miPerfil",{postPerfil : postPerfil})
                 })
             
-                },
+        },
 
 
             
@@ -93,7 +99,7 @@ const bcrypt = require('bcryptjs');
         },
 
         processLogin: function (req, res) {
-            console.log(req.body);
+            // console.log(req.body);
 
             let usuario = req.body.mail
            
@@ -110,10 +116,10 @@ const bcrypt = require('bcryptjs');
                 {
                     where: [
                         { 
-
+                            // usamos variable d arriba de todo para poner que busque o uno o el otro
                             [op.or]: [
-                                {username: { [op.like]: "%" + usuario + "%"}},    
-                                {mail: { [op.like]: "%" + usuario + "%"}}
+                                {username:  usuario},    
+                                {mail: usuario}
                             ]
 
                         },
@@ -129,17 +135,17 @@ const bcrypt = require('bcryptjs');
                     } else if (bcrypt.compareSync(req.body.password, usuario.password) == false) {
                         res.send("Mala contraseña")
                     } else {
-                        req.session.usuarioLog = usuario;
                         //guardo info en sesion y se puede usar para cualquoer control.Guardo en sesion datos de usuario que se acaba de loguear.
+                        req.session.usuarioLog = usuario;
 
                         if (req.body.remember != undefined) {
-                            res.cookie("idDelUsuarioLogueado", usuario.id, { maxAge: 1000 * 3600 });
+                            res.cookie("idDelUsuarioLogueado", usuario, { maxAge: 1000 * 3600 });
                         }
 
                         res.redirect("/user/miPerfil");
                         // Todo bien!
                     }
-                    res.send(usuario)
+                    // res.send(usuario)
                 })
                 .catch(function(error){
                     console.log(error)
@@ -171,7 +177,7 @@ const bcrypt = require('bcryptjs');
             let pregunta = req.body.pregunta;
             let respuesta = req.body.respuesta;
 
-            //recordar punto 4.3
+            
     
             let user = {
                 nombre: nombre,
@@ -202,9 +208,9 @@ const bcrypt = require('bcryptjs');
             let username = req.body.username;
             let password = bcrypt.hashSync(req.body.password, 10);
             let mail = req.body.mail;
-            let edad = req.body.edad;
-            let pregunta = req.body.pregunta;
-            let respuesta = req.body.respuesta;
+            // let edad = req.body.edad;
+            // let pregunta = req.body.pregunta;
+            // let respuesta = req.body.respuesta;
 
             //recordar punto 4.3
     
@@ -216,9 +222,9 @@ const bcrypt = require('bcryptjs');
                 mail: mail,  
             }
 
-            console.log(req.body);
-            console.log("00000000000000000000000000000000000000000");
-            console.log(user);
+            // console.log(req.body);
+            // console.log("00000000000000000000000000000000000000000");
+            // console.log(user);
             
             db.User.update(user,{
                 where: [{
@@ -227,7 +233,7 @@ const bcrypt = require('bcryptjs');
             })
 
             .then(function() {
-                console.log("en el then");
+                // console.log("en el then");
                 res.redirect("/user/miPerfil");
             })
 
@@ -237,6 +243,7 @@ const bcrypt = require('bcryptjs');
         detail: function(req, res) {
 
         let idUser = req.params.id
+
         db.User.findByPk(idUser)
 
         .then(function(usuario) {

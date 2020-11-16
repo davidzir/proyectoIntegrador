@@ -93,7 +93,7 @@ let postController = {
 
         .then(function(post){
 
-            console.log(post);
+            // console.log(post);
 
             res.render("home", {post:post})
 
