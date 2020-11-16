@@ -44,9 +44,7 @@ const bcrypt = require('bcryptjs');
                 pregunta: pregunta,
                 respuesta: respuesta 
             }
-<<<<<<< HEAD
-           
-=======
+
     
             db.User.findOne(
                 {
@@ -71,7 +69,7 @@ const bcrypt = require('bcryptjs');
                     }
                 })
                 
->>>>>>> master
+
 
             // db.User.findOne({
             //     where: {mail: req.body.mail}
