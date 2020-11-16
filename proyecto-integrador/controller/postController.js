@@ -88,12 +88,25 @@ let postController = {
 
     home: function(req, res) {
 
-        db.post.findAll({ limit: 20, order: [ ['createdAt',  'DESC'] ] })
+        // db.post.findAll({ order: [ ['createdAt',  'DESC'] ] },
+        // {include:[
+        //     {association : "usuarioDelPost"},
+        // ]})
+
+        db.post.findAll(
+            {
+                order:[["createdAt", "DESC"]],
+                
+                include:[
+                    {association : "usuarioDelPost"},
+                ]
+        
+            })
 
 
         .then(function(post){
 
-            // console.log(post);
+             console.log(post);
 
             res.render("home", {post:post})
 
@@ -122,7 +135,7 @@ let postController = {
                 res.redirect("/user/miPerfil")
             })  
        
-        }else {
+        } else {
             res.redirect("/user/home")
         }})
     },
@@ -156,23 +169,22 @@ let postController = {
 
 
         db.post.findByPk(id_post)
-        
-
         .then(function(postAEditar){
             console.log(postAEditar);
+
             if (usuario_id != null && usuario_id == postAEditar.usuario_id) {
            
-            
-                db.post.update({ 
-                    texto_post : post.texto_post,
-                    url_perfil : post.url_perfil
-                    
-                },
+                db.post.update(
+                    {
+                     texto_post : post.texto_post,
+                     url_perfil : post.url_perfil 
+                    },
                 {
                     where: {
                         id : id_post
                     }
-                })
+                }
+                )
         
                 .then(function(){
         

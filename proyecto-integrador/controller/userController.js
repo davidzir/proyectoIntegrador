@@ -44,6 +44,30 @@ const bcrypt = require('bcryptjs');
                 pregunta: pregunta,
                 respuesta: respuesta 
             }
+    
+            db.User.findOne(
+                {
+                    where:
+                       {mail:  req.body.mail}
+                    
+                })
+
+                .then(function(mailBuscado){
+                    if(mailBuscado != null){
+                        res.send("Este mail ya esta registrado!")
+                    }
+                    else {
+                        db.User.create(user)
+                        //una vez creado el usuario, usamos un then xq es una promesa y te redirije al login 
+                        .then(function() {
+                            res.redirect("/user/login");
+                        })
+                        .catch(function(error){
+                        console.log(error)
+                        })
+                    }
+                })
+                
 
             // db.User.findOne({
             //     where: {mail: req.body.mail}
@@ -54,21 +78,16 @@ const bcrypt = require('bcryptjs');
 
             //     }
             // })
-    
-            db.User.create(user)
-            //una vez creado el usuario, usamos un then xq es una promesa y te redirije al login 
-            .then(function() {
-                // {
-                //     if(req.body.mail =! null){
-                //         res.send("Este mail ya existe!")
-    
-                //     }
-                // }
+            // {
+            //     if(req.body.mail == true){
+            //         res.send("Este mail ya esta registrado!")
 
-                res.redirect("/user/login");
-            })
-
+            //     }
+            // }
         },
+
+
+            
 
         miPerfil: function(req, res) {
             // if (req.session.usuarioLog != undefined) {
@@ -142,7 +161,7 @@ const bcrypt = require('bcryptjs');
                             res.cookie("idDelUsuarioLogueado", usuario, { maxAge: 1000 * 3600 });
                         }
 
-                        res.redirect("/user/miPerfil");
+                        res.redirect("/post/home");
                         // Todo bien!
                     }
                     // res.send(usuario)
@@ -157,7 +176,7 @@ const bcrypt = require('bcryptjs');
         logout: function(req, res) {
             res.clearCookie("idDelUsuarioLogueado")
           //  req.session.usuarioLog = undefined;
-    req.session.destroy();
+            req.session.destroy();
     
       return      res.redirect("/post/home")
         },
@@ -234,7 +253,12 @@ const bcrypt = require('bcryptjs');
 
             .then(function() {
                 // console.log("en el then");
-                res.redirect("/user/miPerfil");
+                // res.refresh("/user/miPerfil");
+                res.clearCookie("idDelUsuarioLogueado")
+          //  req.session.usuarioLog = undefined;
+            req.session.destroy();
+    
+      return      res.redirect("/user/login")
             })
 
 
