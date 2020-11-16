@@ -44,6 +44,7 @@ const bcrypt = require('bcryptjs');
                 pregunta: pregunta,
                 respuesta: respuesta 
             }
+           
 
             // db.User.findOne({
             //     where: {mail: req.body.mail}
