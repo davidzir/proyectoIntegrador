@@ -35,7 +35,7 @@ let resultadoBusquedaController = {
     },
 
     busquedax: function(req, res) {
-        let queBuscoElUsuariox = "#" + req.body.buscadorx;
+        let queBuscoElUsuariox = req.query.buscadorx;
 
         // db.post.findAll({ limit: 20, order: [ ['createdAt',  'DESC'] ] })
 
@@ -45,6 +45,9 @@ let resultadoBusquedaController = {
                     //{[op.or]:
                     {texto_post: { [op.like]: "%" + queBuscoElUsuariox + "%"}}    
                     //}
+                ],
+                include:[
+                    {association : "usuarioDelPost"},
                 ]
             }
         )
