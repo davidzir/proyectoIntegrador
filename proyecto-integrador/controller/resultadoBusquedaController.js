@@ -9,14 +9,14 @@ let resultadoBusquedaController = {
 
     busqueda: function(req, res) {
 
-        let queBuscoElUsuario = '#' + req.query.buscador;
+        let queBuscoElUsuario = req.query.buscador;
 
     db.User.findAll(
         {
             where: [
                 //buscar op OR
                 {[op.or]: [
-                    {username: { [op.like]: "%" + queBuscoElUsuario + "%"}},    
+                    {username: { [op.like]: "" + queBuscoElUsuario + "%"}},    
                     {mail: { [op.like]: "%" + queBuscoElUsuario + "%"}}
                 ]}
 
@@ -43,7 +43,7 @@ let resultadoBusquedaController = {
             {
                 where: [
                     //{[op.or]:
-                    {texto_post: { [op.like]: "%" + queBuscoElUsuariox + "%"}}    
+                    {texto_post: { [op.like]: "#" + queBuscoElUsuariox + "%"}}    
                     //}
                 ],
                 include:[
