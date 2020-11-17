@@ -9,7 +9,7 @@ let resultadoBusquedaController = {
 
     busqueda: function(req, res) {
 
-        let queBuscoElUsuario = req.query.buscador;
+        let queBuscoElUsuario = '#' + req.query.buscador;
 
     db.User.findAll(
         {
