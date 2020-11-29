@@ -110,13 +110,16 @@ let postController = {
 
             res.render("home", {post:post})
 
+            //compartis la varibale para usar en vista
+
         })
     },
 
     borrar: function(req, res) {
         let usuario_id = req.session.usuarioLog.id
         let id_post = req.params.id;
-
+        //req.params contiene parámetros de ruta(en la parte de ruta de la URL) 
+       // req.query contiene los parámetros de consulta de URL(después del ? en la URL).
 
         db.post.findByPk(id_post)
 

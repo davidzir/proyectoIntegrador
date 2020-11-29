@@ -31,6 +31,8 @@ let resultadoBusquedaController = {
     )
     .then(function(usuarios) {
         res.render("resultadoBusqueda", {usuarios: usuarios});
+        //1usuarios: usar la funcion de la vista 
+        
     })
     },
 
@@ -48,11 +50,13 @@ let resultadoBusquedaController = {
                 ],
                 include:[
                     {association : "usuarioDelPost"},
+                    //quien lo posteo
                 ]
             }
         )
         .then(function(post) {
             res.render("resultadox", {post: post});
+            //compartis la varibale para usar en vista
         })
     }
 }

@@ -44,7 +44,7 @@ const bcrypt = require('bcryptjs');
                 pregunta: pregunta,
                 respuesta: respuesta 
             }
-
+//izquierda columnas base de datos, y nombre lo guardado en variable
     
             db.User.findOne(
                 {
@@ -52,14 +52,15 @@ const bcrypt = require('bcryptjs');
                        {mail:  req.body.mail}
                     
                 })
-
+//info para buscar en base de datos.Find one pedido con funcion asincronica, hay un punto .then que es una promesa.
                 .then(function(mailBuscado){
                     if(mailBuscado != null){
                         res.send("Este mail ya esta registrado!")
                     }
                     else {
                         db.User.create(user)
-                        //una vez creado el usuario, usamos un then xq es una promesa y te redirije al login 
+                        //create:registro    
+                 //una vez creado el usuario, usamos un then xq es una promesa y te redirije al login 
                         .then(function() {
                             res.redirect("/user/login");
                         })
@@ -68,7 +69,7 @@ const bcrypt = require('bcryptjs');
                         })
                     }
                 })
-                
+               
 
 
             // db.User.findOne({
@@ -115,6 +116,7 @@ const bcrypt = require('bcryptjs');
         login: function(req, res) {
             if (req.session.usuarioLog != undefined) {
               return res.redirect("/user/miPerfil");
+              //si esta logueado voy a mi perfil, sino a login
         }
             res.render("login"); 
         },
@@ -155,12 +157,16 @@ const bcrypt = require('bcryptjs');
                         res.send("El usuario no existe")
                     } else if (bcrypt.compareSync(req.body.password, usuario.password) == false) {
                         res.send("Mala contraseña")
+                        //1: lo que escribio usuario
+                        //2 : recibis contraseñas del usuario encriptada ya en base de datos y la comparas
+                        //para si coinciden
                     } else {
                         //guardo info en sesion y se puede usar para cualquoer control.Guardo en sesion datos de usuario que se acaba de loguear.
                         req.session.usuarioLog = usuario;
 
                         if (req.body.remember != undefined) {
                             res.cookie("idDelUsuarioLogueado", usuario, { maxAge: 1000 * 3600 });
+        
                         }
 
                         res.redirect("/post/home");
@@ -184,7 +190,6 @@ const bcrypt = require('bcryptjs');
         },
     
         
-
 
         edit: function(req, res) {
 
